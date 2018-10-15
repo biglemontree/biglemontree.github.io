@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"">
+    <meta name="
+        format-detection" content="telphone=no, email=no">
+    <link rel="stylesheet" href="./plugin/viewer.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>物料用例</title>
+</head>
+
+<body class="design-page">
+    <div id="images">
+        <div>
+            <img src="./block-imgs/tpls/停车场物料_1.jpg" class="small" data-index="1" onclick="showPreview(this.dataset.index,'portrait')"
+                alt="" srcset="">
+            <div>岗亭1</div>
+        </div>
+        <div>
+            <img src="./block-imgs/tpls/停车场物料_2.jpg" class="small" data-index="2" onclick="showPreview(this.dataset.index,'portrait')"
+                alt="" srcset="">
+            <div>岗亭1</div>
+        </div>
+        <div>
+            <img src="./block-imgs/tpls/停车场物料_3.jpg" class="small" data-index="3" onclick="showPreview(this.dataset.index,'portrait')"
+                alt="" srcset="">
+            <div>岗亭1</div>
+        </div>
+        <div>
+            <img src="./block-imgs/tpls/停车场物料_4.jpg" class="small" data-index="4" onclick="showPreview(this.dataset.index,'portrait')"
+                alt="" srcset="">
+            <div>岗亭1</div>
+        </div>
+        <div>
+            <img src="./block-imgs/tpls/停车场物料_5.jpg" class="small" data-index="5" onclick="showPreview(this.dataset.index,'portrait')"
+                alt="" srcset="">
+            <div>岗亭1</div>
+        </div>
+        <div>
+            <img src="./block-imgs/tpls/停车场物料_6.jpg" class="small" data-index="6" onclick="showPreview(this.dataset.index,'portrait')"
+                alt="" srcset="">
+            <div>岗亭1</div>
+        </div>
+    </div>
+    <div class="download design c-fff flex items-center justify-center">
+        <img src="./block-imgs/icon/icon-download.png" alt="">
+        <a href="./design-tpl.html" class="mr-2px">一键下载</a>
+    </div>
+    <script src="./plugin/viewer.js"></script>
+    <script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px'
+        function showPreview(index) {
+            var viewer = new Viewer(document.getElementById('images'), {
+                inline: true,
+                initialViewIndex: index,
+                minwidth: 100,
+                toolbar: 0,
+                title: false,
+                fullscreen: false,
+                viewed: function () {
+                    viewer.zoomTo(.1);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
