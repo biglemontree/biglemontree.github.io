@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"">
-    <meta name="
-        format-detection" content="telphone=no, email=no">
+    <meta name="format-detection" content="telphone=no, email=no">
     <link rel="stylesheet" href="./plugin/viewer.css">
     <link rel="stylesheet" href="./style.css">
     <title>物料用例</title>
@@ -14,56 +13,104 @@
 <body class="design-page">
     <div id="images">
         <div>
-            <img src="./block-imgs/tpls/停车场物料_1.jpg" class="small" data-index="1" onclick="showPreview(this.dataset.index,'portrait')"
+            <img id="img1" src="./block-imgs/tpls/停车场物料_1.jpg" class="small" data-index="1" 
                 alt="" srcset="">
-            <div>岗亭1</div>
+            <div>圆形灯牌</div>
         </div>
         <div>
-            <img src="./block-imgs/tpls/停车场物料_2.jpg" class="small" data-index="2" onclick="showPreview(this.dataset.index,'portrait')"
+            <img id="img2" src="./block-imgs/tpls/停车场物料_2.jpg" class="small" data-index="2" 
                 alt="" srcset="">
-            <div>岗亭1</div>
+            <div>方形灯牌</div>
         </div>
         <div>
-            <img src="./block-imgs/tpls/停车场物料_3.jpg" class="small" data-index="3" onclick="showPreview(this.dataset.index,'portrait')"
+            <img id="img3" src="./block-imgs/tpls/停车场物料_3.jpg" class="small" data-index="3" 
                 alt="" srcset="">
-            <div>岗亭1</div>
+            <div>移动展示牌</div>
         </div>
         <div>
-            <img src="./block-imgs/tpls/停车场物料_4.jpg" class="small" data-index="4" onclick="showPreview(this.dataset.index,'portrait')"
+            <img id="img4" src="./block-imgs/tpls/停车场物料_4.jpg" class="small" data-index="4" 
                 alt="" srcset="">
-            <div>岗亭1</div>
+            <div>移动立牌</div>
         </div>
         <div>
-            <img src="./block-imgs/tpls/停车场物料_5.jpg" class="small" data-index="5" onclick="showPreview(this.dataset.index,'portrait')"
+            <img id="img5" src="./block-imgs/tpls/停车场物料_5.jpg" class="small" data-index="5" 
                 alt="" srcset="">
-            <div>岗亭1</div>
+            <div>立柱包装</div>
         </div>
-        <div>
-            <img src="./block-imgs/tpls/停车场物料_6.jpg" class="small" data-index="6" onclick="showPreview(this.dataset.index,'portrait')"
+        <div class="block-6">
+            <img id="img6" src="./block-imgs/tpls/停车场物料_6.jpg" class="small" data-index="6" 
                 alt="" srcset="">
-            <div>岗亭1</div>
+            <div>墙体贴</div>
+        </div>
+        <div class="block-6">
+            <img id="img7" src="./block-imgs/tpls/岗亭_1.jpg" class="small" data-index="7" 
+                alt="" srcset="">
+            <div>岗亭包装1</div>
+        </div>
+        <div class="block-6">
+            <img id="img8" src="./block-imgs/tpls/岗亭_2.jpg" class="small" data-index="8" 
+                alt="" srcset="">
+            <div>岗亭包装2</div>
         </div>
     </div>
     <div class="download design c-fff flex items-center justify-center">
         <img src="./block-imgs/icon/icon-download.png" alt="">
-        <a href="./design-tpl.html" class="mr-2px">一键下载</a>
+        <a href="http://download.fapiaoer.cn/block_chain_sh/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%94%B5%E5%AD%90%E5%8F%91%E7%A5%A8%E7%89%A9%E6%96%99%E8%AE%BE%E8%AE%A1%E6%A8%A1%E7%89%88.zip" class="mr-2px">一键下载</a>
     </div>
-    <script src="./plugin/viewer.js"></script>
+    <script src="./plugin/imageViewer.min.js"></script>
     <script type="text/javascript">
         document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px'
-        function showPreview(index) {
-            var viewer = new Viewer(document.getElementById('images'), {
-                inline: true,
-                initialViewIndex: index,
-                minwidth: 100,
-                toolbar: 0,
-                title: false,
-                fullscreen: false,
-                viewed: function () {
-                    viewer.zoomTo(.1);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // FastClick.attach(document.body);
+            function getElement(index) {
+                // 可以不返回任何一个值，仅仅传入一个空函数指明要开启渐变动画
+                return document.getElementById('img' + (index + 1));
+            }
+            // 图片对象说明:
+            // thumbnail: 缩略图的链接(非必传)
+            // url: 原图的链接(必传)
+            var images = [
+                { url: 'block-imgs/tpls/停车场物料_1.jpg' },
+                { url: 'block-imgs/tpls/停车场物料_2.jpg' },
+                { url: 'block-imgs/tpls/停车场物料_3.jpg' },
+                { url: 'block-imgs/tpls/停车场物料_4.jpg' },
+                { url: 'block-imgs/tpls/停车场物料_5.jpg' },
+                { url: 'block-imgs/tpls/停车场物料_6.jpg' },
+                { url: 'block-imgs/tpls/岗亭_1.jpg' },
+                { url: 'block-imgs/tpls/岗亭_2.jpg' }
+            ];
+            window.imageViewer = new ImageViewer();
+            imageViewer.setImageOption(images);
+            imageViewer.setOption({
+                // duration: 1000,
+                container: 'body',
+                autoLoadImage: true,
+                enableScale: true,
+                enableTapClose: true,
+                startIndex: 0,
+                fadeInFn: getElement,
+                fadeOutFn: getElement,
+                headerRender: function () {
+                    setTimeout(function () {
+                        document.getElementById('close').addEventListener('click', function () {
+                            imageViewer.close();
+                        }, false);
+                    }, 0);
+                    return '<div id="close">关闭</div>';
+                },
+                footerRender: function () {
+                    return '<span class="number-current"></span>/<span class="number-total"></span>';
                 }
-            })
-        }
+            });
+            document.getElementById('images').addEventListener('click', function (event) {
+                var index = event.target.getAttribute('data-index');
+                if (index) {
+                    imageViewer.open(parseInt(index-1));
+                    // imageViewer.open(0);
+                }
+            }, false);
+        }, false);
     </script>
 </body>
 

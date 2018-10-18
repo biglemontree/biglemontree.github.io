@@ -5,36 +5,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"">
     <meta name="format-detection" content="telphone=no, email=no">
-    <meta itemprop="name" content="区块链发票-停车场接入指南"></meta>
-    <meta itemprop="image" content="./block-imgs/park_icon.png"></meta>
-    <meta name="description" itemprop="description" content="一分钟解锁区块链发票，停车场30秒自助开票"></meta>
     <link rel="stylesheet" href="style.css">
     <title>区块链发票接入指南</title>
 </head>
 
 <body>
     <div id="root">
-        <img src="./block-imgs/a.png" class="first-pic" data-src="./block-imgs/a.png"
-            alt="">
-        <img src="./block-imgs/a1.png" data-src="./block-imgs/a1.png" alt="">
-        <div class="index relative">
-            <img src="./block-imgs/a2.png" data-src="./block-imgs/a2.png" alt="">
-            <div class="docs absolute c-fff flex items-center justify-center">
+        <img src="./block-imgs/b/b.png" class="first-pic big" data-src="./block-imgs/b/b.png" alt="">
+        <img src="./block-imgs/b/b1.png" class="big" data-src="./block-imgs/b/b1.png" alt="">
+        <div class="index relative ">
+            <img src="./block-imgs/b/b2.png" class="big" data-src="./block-imgs/b/b2.png" alt="">
+            <div class="docs car absolute c-fff flex items-center justify-center">
                 <a href="http://download.fapiaoer.cn/block_chain_sh/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E9%9C%80%E6%B1%82%E8%AF%B4%E6%98%8E%E4%B9%A6-v1.1.5%281%29.pdf" class="mr-2px">详细接口文档</a>
                 <img src="./block-imgs/icon/icon-go.svg" alt="">
             </div>
-        </div><img src="./block-imgs/a3.png" data-src="./block-imgs/a3.png" alt=""><div class="index relative"><img src="./block-imgs/a4.png" data-src="./block-imgs/a4.png" alt="">
-            <div class="docs design absolute c-fff flex items-center justify-center">
-                <a href="./design-tpl.html" class="mr-2px">获取物料模板</a>
-                <img src="./block-imgs/icon/icon-go.svg" alt="">
-            </div>
-        </div>
+        </div><img src="./block-imgs/b/b3.png" class="big" data-src="./block-imgs/b/b3.png" alt=""><img src="./block-imgs/b/b4.png" class="big" data-src="./block-imgs/b/b4.png" alt="">
     </div>
 
     <script src="./lazy-load.js"></script>
     <!-- <script>
-        var num = document.getElementsByTagName('img').length;
-        var img = document.getElementsByTagName("img");
+        var num = document.getElementsByClassName('big').length;
+        var img = document.getElementsByClassName('big');
         var n = 0; //存储图片加载到的位置，避免每次都从第一张图片开始遍历
 
         lazyload(); //页面载入完毕加载可是区域内的图片
@@ -45,7 +36,10 @@
             var seeHeight = document.documentElement.clientHeight; //可见区域高度
             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //滚动条距离顶部高度
             for (var i = n; i < num; i++) {
+                console.log(num);
+                
                 if (img[i].offsetTop < seeHeight + scrollTop) {
+                    if(i==1) debugger
                     if (img[i].getAttribute("src") == "") {
                         img[i].src = img[i].getAttribute("data-src");
                     }
@@ -55,10 +49,10 @@
         }
         // 采用了节流函数
         window.addEventListener('scroll', throttle(lazyload, 500, 1000));
-    </script>
+    </script> -->
     <script id="__bs_script__">//<![CDATA[
         document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.3'><\/script>".replace("HOST", location.hostname));
-    //]]></script> -->
+    //]]></script>
 </body>
 
 </html>

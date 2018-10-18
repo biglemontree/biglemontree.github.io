@@ -44,12 +44,16 @@ img {
     width: 100%;
     outline-width:0px;
     vertical-align:top;
-    /* height: 400px; */
 }
+.first-pic {height: 100vh;}
 .docs {
-    width: 100vw;
+    width: 150px;
     text-align: center;
     top: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    border: 1px solid #ffffff;
 }
 .design {
     top: 70vw;
@@ -75,7 +79,7 @@ img {
     display: block;
     position: absolute;
     bottom: 26px;
-    width: 100vw;
+    width: 100%;
     height: .48rem;
     background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, #FFFFFF 100%);
 }
@@ -86,9 +90,10 @@ img {
     width: 3.2rem;
     height: 3rem;
 }
-/* #images > div:last-child {
-    margin-bottom: 0;
-} */
+.block-6 .small{
+    width: 100%;
+    height: 3rem;
+}
 .download {
     width: 4.6rem;
     height: .9rem;
@@ -100,4 +105,15 @@ img {
 .download img {
     width: .36rem;
     margin-right: 8px;
+}
+
+.image-footer {
+    text-align: center;
+    font-size: 16px !important;
+    bottom: 20px !important;
+}
+
+/* block-car.html */
+.car {
+    top: 70vw;
 }
