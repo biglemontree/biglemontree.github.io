@@ -4,26 +4,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"">
-    <meta name="format-detection" content="telphone=no, email=no">
-    <meta itemprop="name" content="区块链发票-停车场接入指南"></meta>
-    <meta itemprop="image" content="./block-imgs/park_icon.png"></meta>
-    <meta name="description" itemprop="description" content="一分钟解锁区块链发票，停车场30秒自助开票"></meta>
+    <meta name="
+        format-detection" content="telphone=no, email=no">
+    <meta itemprop="name" content="区块链发票-停车场接入指南">
+    </meta>
+    <meta itemprop="image" content="./block-imgs/park_icon.png">
+    </meta>
+    <meta name="description" itemprop="description" content="一分钟解锁区块链发票，停车场30秒自助开票">
+    </meta>
     <link rel="stylesheet" href="style.css">
     <title>区块链发票接入指南</title>
 </head>
 
 <body>
     <div id="root">
-        <img src="./block-imgs/a.png" class="first-pic" data-src="./block-imgs/a.png"
-            alt="">
+        <img src="./block-imgs/a.png" class="first-pic" data-src="./block-imgs/a.png" alt="">
         <img src="./block-imgs/a1.png" data-src="./block-imgs/a1.png" alt="">
         <div class="index relative">
             <img src="./block-imgs/a2.png" data-src="./block-imgs/a2.png" alt="">
             <div class="docs absolute c-fff flex items-center justify-center">
-                <a href="http://download.fapiaoer.cn/block_chain_sh/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E9%9C%80%E6%B1%82%E8%AF%B4%E6%98%8E%E4%B9%A6-v1.1.5%281%29.pdf" class="mr-2px">详细接口文档</a>
+                <a href="http://download.fapiaoer.cn/block_chain_sh/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E9%9C%80%E6%B1%82%E8%AF%B4%E6%98%8E%E4%B9%A6-v1.1.5%281%29.pdf"
+                    class="mr-2px">详细接口文档</a>
                 <img src="./block-imgs/icon/icon-go.svg" alt="">
             </div>
-        </div><img src="./block-imgs/a3.png" data-src="./block-imgs/a3.png" alt=""><div class="index relative"><img src="./block-imgs/a4.png" data-src="./block-imgs/a4.png" alt="">
+        </div><img src="./block-imgs/a3.png" data-src="./block-imgs/a3.png" alt="">
+        <div class="index relative"><img src="./block-imgs/a4.png" data-src="./block-imgs/a4.png" alt="">
             <div class="docs design absolute c-fff flex items-center justify-center">
                 <a href="./design-tpl.html" class="mr-2px">获取物料模板</a>
                 <img src="./block-imgs/icon/icon-go.svg" alt="">
@@ -31,7 +36,48 @@
         </div>
     </div>
 
-    <script src="./lazy-load.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script>
+        var href = window.location.href.split('#')[0]
+        $.ajax({
+            url: "https://apifp.fapiaoer.cn/extract-code/build-config",
+            type: "post",
+            data: { url: href },
+            success: function (res) {
+
+                window.wx.config({
+                    ...res.data,
+                    beta: true,
+                    debug: true,
+                    jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage"]
+                })
+                alert('config')
+                wx.ready(function () {
+                    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+                    let opt = {
+                        title: 'title', // 分享标题
+                        desc: 'desc', // 分享描述
+                        link: 'https://invoice.fapiaoer.cn', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: './block-imgs/park_icon.png', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                            alert(33444)
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+
+                    }
+                    // 分享到朋友圈
+                    wx.onMenuShareTimeline(opt);
+
+                    // 分享给微信好友
+                    wx.onMenuShareAppMessage(opt)
+                })
+            }
+        })
+    </script>
     <!-- <script>
         var num = document.getElementsByTagName('img').length;
         var img = document.getElementsByTagName("img");
