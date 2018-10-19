@@ -45,14 +45,9 @@
         $.ajax({
             url: "https://apifp.fapiaoer.cn/extract-code/build-config",
             type: "post",
-            data: { url: href },
+            data: { url: 'https://invoice.fapiaoer.cn' },
             success: function (res) {
-                for (const key in res) {
-                    if (res.hasOwnProperty(key)) {
-                        const element = res[key];
-                        
-                    }
-                }
+                
                 var obj = Object.assign(res, {beta: true,
                     debug: true,
                     jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage"]})
